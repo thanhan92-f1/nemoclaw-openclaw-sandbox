@@ -15,7 +15,7 @@ cd nemoclaw-openclaw-sandbox
 
 ## Target Platform
 
-- Provider: ` Cloud Service or VPS`
+- Provider: `Cloud service or VPS`
 - OS: `Ubuntu 24.04`
 - Minimum recommended size: `4 vCPU / 8 GB RAM / 50 GB disk`
 - Access level: `root` shell on the VPS host
@@ -24,11 +24,11 @@ cd nemoclaw-openclaw-sandbox
 
 Prepare these before running the installation:
 
-- Cloud Service or VPS with firewall access
+- Cloud service or VPS with firewall access
 - NVIDIA API key (`nvapi-...`)
 - Anthropic API key (`sk-ant-...`) if Claude will be used
 - Optional OpenAI API key if OpenAI models will be used
-- Cloud Service or VPS subdomain such as `srv1234567.local`
+- Public domain or subdomain such as `sandbox.example.cloud`
 
 ## Service and Dependency Summary
 
@@ -52,9 +52,9 @@ See `docs/services-and-dependencies.md` for the detailed matrix.
 
 ## Installation Sequence
 
-### 1. Open the Cloud Service or VPS  Firewall
+### 1. Open the Cloud Firewall
 
-Only expose public ports `80` and `443` in Cloud Service or VPS.
+Only expose public ports `80` and `443` in your cloud firewall or VPS panel.
 Do not expose `18789` publicly.
 
 ### 2. Update the Host and Install Docker
@@ -169,7 +169,7 @@ apt update && apt install caddy -y
 Create `/etc/caddy/Caddyfile`:
 
 ```caddyfile
-YOUR-SUBDOMAIN.hstgr.cloud {
+YOUR-DOMAIN-OR-SUBDOMAIN {
   reverse_proxy 127.0.0.1:18789 {
     header_up Host 127.0.0.1:18789
     header_up Origin http://127.0.0.1:18789

@@ -32,6 +32,10 @@ Instead, report privately to the repository maintainers with:
 - impact assessment
 - suggested mitigation if available
 
+If the repository exposes a dedicated private security reporting channel, use that channel first.
+
+For non-active hardening gaps, documentation corrections, or low-risk security improvements, the dedicated `security_report` issue template may be used.
+
 ## Operational Security Rules
 
 - Publicly expose only `80` and `443`.

@@ -19,4 +19,4 @@ The format is based on `Keep a Changelog` and this repository currently tracks d
 ### Changed
 
 - expanded `.gitignore` for repository hygiene
-- normalized docs references around the Cloud Service or VPS runbook filename
+- normalized docs references around the cloud service or VPS runbook filename

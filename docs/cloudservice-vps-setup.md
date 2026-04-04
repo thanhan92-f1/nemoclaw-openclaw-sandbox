@@ -4,14 +4,14 @@
 
 - Ubuntu `24.04`
 - Minimum `4 vCPU`, `8 GB RAM`, `50 GB disk`
-- Cloud Service or VPS access
+- cloud service or VPS access
 - Root shell access over SSH
 - NVIDIA API key for the onboarding wizard
 - Anthropic and optionally OpenAI API keys for inference providers
 
 ## 2. Firewall Rules
 
-In Cloud Service or VPS, allow only:
+In your cloud firewall or VPS panel, allow only:
 
 - `TCP/80`
 - `TCP/443`
@@ -130,7 +130,7 @@ Store the token securely.
 
 Install and enable Caddy on the host. Configure it to reverse proxy:
 
-- from `https://YOUR-SUBDOMAIN.hstgr.cloud`
+- from `https://YOUR-DOMAIN-OR-SUBDOMAIN`
 - to `http://127.0.0.1:18789`
 
 Only Caddy should be internet-facing.

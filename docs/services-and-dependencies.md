@@ -4,7 +4,7 @@
 
 | Component | Scope | Purpose | Install Method | Notes |
 |---|---|---|---|---|
-| Ubuntu 24.04 | Host | Base operating system | Cloud Service or VPS image | Recommended baseline |
+| Ubuntu 24.04 | Host | Base operating system | cloud service or VPS image | Recommended baseline |
 | Docker | Host | Container runtime for OpenShell stack | `curl -fsSL https://get.docker.com | sh` | Requires cgroup config fix |
 | OpenShell | Host | Secure sandbox runtime, policies, providers, forwarding | official install script | Installed to host shell |
 | NemoClaw | Host | Sandbox bootstrap and connection workflow | `curl -fsSL https://nvidia.com/nemoclaw.sh | bash` | Uses `nvm` internally |
