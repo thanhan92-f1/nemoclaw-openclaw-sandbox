@@ -1,0 +1,11 @@
+tests/
+.github/
+.git/
+.gitignore
+.env
+*.log
+.DS_Store
+*.swp
+*.swo
+*~
+tests/.bats/

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security report
+    url: https://github.com/thanhan92-f1/nemoclaw-openclaw-sandbox/security
+    about: Report security-sensitive issues privately instead of using a public issue.
+  - name: Documentation and operations overview
+    url: https://github.com/thanhan92-f1/nemoclaw-openclaw-sandbox
+    about: Review the repository documentation before opening a new issue.

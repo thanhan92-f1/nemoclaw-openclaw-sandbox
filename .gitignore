@@ -1,0 +1,55 @@
+# OS and editor artifacts
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs and temp files
+*.log
+*.tmp
+*.temp
+.cache/
+coverage/
+reports/
+
+# Dependency directories
+node_modules/
+.npm/
+.pnpm-store/
+
+# Python artifacts
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Local tool state
+.claude/
+.sentrux/
+tests/.bats
+
+# Build and archive outputs
+dist/
+build/
+out/
+*.zip
+*.tar
+*.gz
+
+# Generated documentation output
+site/
+public/
+
+NemoClaw on Cloud or VPS.md
+NemoClaw_Command_Guide.md
