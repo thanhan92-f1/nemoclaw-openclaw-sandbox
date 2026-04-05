@@ -13,6 +13,34 @@ git clone https://github.com/thanhan92-f1/nemoclaw-openclaw-sandbox.git
 cd nemoclaw-openclaw-sandbox
 ```
 
+## Scripted Installation Option
+
+This repository also provides `install.sh` for repeatable install, update, repo sync, and managed uninstall operations.
+
+Optional convenience wrappers are also included:
+
+- `update.sh`
+- `uninstall.sh`
+- `repo-sync.sh`
+
+An example environment template is also included in `.env.example` for local operator reference.
+
+Example:
+
+```bash
+sudo bash install.sh install --domain sandbox.example.cloud
+```
+
+Wrapper examples:
+
+```bash
+sudo bash update.sh --repo-ref main --domain sandbox.example.cloud
+sudo bash repo-sync.sh --repo-ref v0.1.0
+sudo bash uninstall.sh --yes
+```
+
+For usage details, see `docs/install-script.md`.
+
 ## Target Platform
 
 - Provider: `Cloud service or VPS`

@@ -74,6 +74,9 @@ Primary sandbox repository reference:
 - `SECURITY.md` — security reporting and operational hardening notes
 - `CHANGELOG.md` — tracked repository changes
 - `RELEASING.md` — release and versioning policy
+- `.env.example` — local-only environment variable template for operators
+- `install.sh` — host bootstrap, repo sync, update, and managed uninstall helper
+- `update.sh` / `uninstall.sh` / `repo-sync.sh` — thin wrappers around `install.sh` actions
 - `docs/README.md` — documentation index
 - `docs/cloudservice-vps-setup.md` — deployment runbook
 - `docs/services-and-dependencies.md` — services, dependencies, ports, and files
@@ -84,6 +87,41 @@ Primary sandbox repository reference:
 - `docs/skills-and-plugins.md` — curated skill and plugin operations
 - `docs/troubleshooting.md` — common failure patterns and recovery steps
 - `docs/operations-checklist.md` — install, verification, and day-2 checklists
+- `docs/backup-and-restore.md` — backup scope, archive workflow, and restore validation
+- `docs/upgrade-runbook.md` — controlled upgrade workflow and rollback guidance
+- `docs/install-script.md` — usage guide for `install.sh` and repo-ref based updates
+- `docs/hardening.md` — host, SSH, Docker, proxy, and policy hardening baseline
+- `docs/disaster-recovery.md` — service recovery flow for host loss or failed upgrades
+- `docs/monitoring.md` — service health, reachability, and capacity review baseline
+- `docs/logging.md` — primary log sources and incident log triage workflow
+- `docs/faq.md` — quick operator answers for install, update, rollback, and recovery
+- `docs/networking.md` — DNS, firewall, loopback gateway, and proxy network model
+- `docs/provider-rotation.md` — provider key rotation and active provider switch workflow
+- `docs/release-checklist.md` — repeatable release validation and tagging checklist
+- `docs/security-checklist.md` — repeatable security review checklist
+- `docs/maintenance.md` — daily, weekly, and monthly maintenance baseline
+- `docs/migration.md` — controlled host or domain migration workflow
+- `docs/known-limitations.md` — documented operational limits and constraints
+- `docs/incident-response.md` — triage, containment, and recovery decision flow
+- `docs/access-control.md` — operator access boundaries and review model
+- `docs/credential-handling.md` — safe provider and token handling rules
+- `docs/decommissioning.md` — host retirement and shutdown checklist
+- `docs/operations-sla.md` — internal service targets and incident priority model
+- `docs/support-model.md` — support routing and escalation model
+- `docs/audit-checklist.md` — periodic operational and documentation audit checklist
+- `docs/change-management.md` — controlled change workflow and validation discipline
+- `docs/oncall-runbook.md` — first-response workflow and escalation model for operators
+- `docs/risk-register.md` — tracked operational and security risks for the deployment model
+- `docs/acceptance-checklist.md` — deployment and major-change acceptance criteria
+- `docs/service-dependencies-matrix.md` — summarized dependency chain across host, runtime, proxy, and channels
+- `docs/capacity-planning.md` — lightweight capacity review and host sizing guidance
+- `docs/configuration-baseline.md` — expected deployment baseline and allowed deviation model
+- `docs/rollback-strategy.md` — safe rollback decision and validation workflow
+- `docs/post-incident-review.md` — lightweight review process after incidents
+- `docs/operator-handover.md` — minimum transfer checklist for operational ownership
+- `docs/maintenance-windows.md` — planning and validation model for maintenance windows
+- `docs/control-mapping.md` — mapping of operational controls to deployment risk areas
+- `docs/validation-matrix.md` — minimum validation expectations for common change types
 
 ## License
 

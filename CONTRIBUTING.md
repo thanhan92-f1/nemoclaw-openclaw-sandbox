@@ -8,7 +8,7 @@ Contributions should improve deployment reliability, documentation quality, oper
 
 - Read `README.md` and `INSTALL.md`.
 - Review the original operational guides.
-- Keep changes aligned with Ubuntu 24.04 and  Cloud Service or VPS assumptions unless clearly documented otherwise.
+- Keep changes aligned with Ubuntu 24.04 and cloud service or VPS assumptions unless clearly documented otherwise.
 - Preserve security defaults: public `80/443` only, local gateway on `127.0.0.1:18789`.
 
 ## Contribution Flow

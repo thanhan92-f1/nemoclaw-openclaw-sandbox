@@ -15,8 +15,49 @@ The format is based on `Keep a Changelog` and this repository currently tracks d
 - GitHub Actions workflow for Markdown and workflow validation
 - `SECURITY.md` and `.github/CODEOWNERS`
 - focused setup guides for Telegram, providers, policies, skills, and plugins
+- `docs/troubleshooting.md` and `docs/operations-checklist.md`
+- `RELEASING.md` and `.github/ISSUE_TEMPLATE/security_report.md`
+- `.github/workflows/ci.yml` for Markdown linting and workflow validation
+- `docs/backup-and-restore.md` and `docs/upgrade-runbook.md`
+- `.github/ISSUE_TEMPLATE/question.md`
+- `install.sh` and `docs/install-script.md`
+- `update.sh`, `uninstall.sh`, and `repo-sync.sh`
+- `docs/hardening.md`
+- `docs/disaster-recovery.md`
+- `docs/monitoring.md`
+- `docs/logging.md`
+- `docs/faq.md`
+- `.env.example`
+- `docs/networking.md`
+- `docs/provider-rotation.md`
+- `docs/release-checklist.md`
+- `docs/security-checklist.md`
+- `docs/maintenance.md`
+- `docs/migration.md`
+- `docs/known-limitations.md`
+- `docs/incident-response.md`
+- `docs/access-control.md`
+- `docs/credential-handling.md`
+- `docs/decommissioning.md`
+- `docs/operations-sla.md`
+- `docs/support-model.md`
+- `docs/audit-checklist.md`
+- `docs/change-management.md`
+- `docs/oncall-runbook.md`
+- `docs/risk-register.md`
+- `docs/acceptance-checklist.md`
+- `docs/service-dependencies-matrix.md`
+- `docs/capacity-planning.md`
+- `docs/configuration-baseline.md`
+- `docs/rollback-strategy.md`
+- `docs/post-incident-review.md`
+- `docs/operator-handover.md`
+- `docs/maintenance-windows.md`
+- `docs/control-mapping.md`
+- `docs/validation-matrix.md`
 
 ### Changed
 
 - expanded `.gitignore` for repository hygiene
 - normalized docs references around the cloud service or VPS runbook filename
+- standardized repository-facing branding around cloud service or VPS deployment wording
