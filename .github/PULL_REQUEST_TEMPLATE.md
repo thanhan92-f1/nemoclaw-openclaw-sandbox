@@ -16,6 +16,7 @@
 - [ ] Commands checked for consistency
 - [ ] Paths, ports, and service names verified
 - [ ] Related docs updated
+- [ ] Change remains consistent with the repository's non-commercial license model
 
 ## Risk Assessment
 

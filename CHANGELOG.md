@@ -59,9 +59,13 @@ The format is based on `Keep a Changelog` and this repository currently tracks d
 - `docs/dependency-review.md`
 - `docs/service-readiness.md`
 - `docs/operator-onboarding.md`
+- `docs/licensing.md`
 
 ### Changed
 
 - expanded `.gitignore` for repository hygiene
 - normalized docs references around the cloud service or VPS runbook filename
 - standardized repository-facing branding around cloud service or VPS deployment wording
+- aligned `LICENSE`, `NOTICE`, `COMMERCIAL-LICENSE.md`, `README.md`, and `web/index.html` around explicit non-commercial usage terms and commercial-rights reservation
+- added early non-commercial license guidance to `CONTRIBUTING.md` and `.github/ISSUE_TEMPLATE/config.yml`
+- added non-commercial compliance prompts to the PR template and public issue templates

@@ -7,9 +7,17 @@ Contributions should improve deployment reliability, documentation quality, oper
 ## Before You Start
 
 - Read `README.md` and `INSTALL.md`.
+- Read `LICENSE`, `NOTICE`, and `docs/licensing.md` before preparing changes.
 - Review the original operational guides.
 - Keep changes aligned with Ubuntu 24.04 and cloud service or VPS assumptions unless clearly documented otherwise.
 - Preserve security defaults: public `80/443` only, local gateway on `127.0.0.1:18789`.
+
+## License Boundary
+
+- This repository is available for strictly non-commercial use only.
+- Public availability on GitHub, npm, or similar channels does not grant any commercial right.
+- Do not propose or submit changes that assume resale, paid delivery, hosted commercialization, or commercial sublicensing rights unless explicitly authorized in writing.
+- For the canonical terms, use `LICENSE`; for a summary, see `NOTICE` and `docs/licensing.md`.
 
 ## Contribution Flow
 
@@ -43,6 +51,7 @@ Every pull request should include:
 - Impacted files or services
 - Validation performed
 - Any rollback or migration considerations
+- Confirmation that the contribution does not conflict with the repository's non-commercial license model
 
 ## Validation Checklist
 

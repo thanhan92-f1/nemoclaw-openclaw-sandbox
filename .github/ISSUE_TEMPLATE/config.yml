@@ -1,5 +1,8 @@
 blank_issues_enabled: false
 contact_links:
+  - name: License and usage terms
+    url: https://github.com/thanhan92-f1/nemoclaw-openclaw-sandbox/blob/main/docs/licensing.md
+    about: Review the non-commercial usage terms before opening commercial or redistribution-related questions.
   - name: Security report
     url: https://github.com/thanhan92-f1/nemoclaw-openclaw-sandbox/security
     about: Report security-sensitive issues privately instead of using a public issue.

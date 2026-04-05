@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Background -->
+  <rect width="256" height="256" rx="40" fill="#0d1117"/>
+
+  <!-- C shape -->
+  <path d="M 158 48 C 110 35, 48 65, 48 128 C 48 191, 110 221, 158 208"
+        stroke="#76B900" stroke-width="22" stroke-linecap="round" fill="none"/>
+
+  <!-- Bolt inside the C -->
+  <polygon points="145,72 120,122 142,122 118,178 152,128 130,128 155,72"
+           fill="#E85D3A"/>
+</svg>

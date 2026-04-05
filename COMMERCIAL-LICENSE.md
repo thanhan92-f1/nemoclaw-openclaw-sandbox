@@ -18,6 +18,9 @@ owner / copyright holder before doing any of the following:
 - using the project in any workflow intended to generate revenue or provide a
   commercial advantage
 
+Important: availability on GitHub, npm, or any public source distribution
+channel does not grant any commercial right.
+
 ## Non-commercial use that is allowed
 
 Without a separate commercial license, the project may be used only for

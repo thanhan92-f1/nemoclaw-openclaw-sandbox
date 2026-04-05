@@ -37,6 +37,7 @@ nemoclaw-openclaw/
 │  ├─ install-script.md
 │  ├─ incident-response.md
 │  ├─ known-limitations.md
+│  ├─ licensing.md
 │  ├─ logging.md
 │  ├─ maintenance.md
 │  ├─ maintenance-windows.md
@@ -69,9 +70,12 @@ nemoclaw-openclaw/
 ├─ .env.example
 ├─ .gitignore
 ├─ CHANGELOG.md
+├─ COMMERCIAL-LICENSE.md
 ├─ CONTRIBUTING.md
 ├─ INSTALL.md
 ├─ install.sh
+├─ LICENSE
+├─ NOTICE
 ├─ README.md
 ├─ RELEASING.md
 ├─ SECURITY.md
@@ -92,7 +96,10 @@ nemoclaw-openclaw/
 - `STRUCTURE.md` — this file.
 - `CONTRIBUTING.md` — contribution and review expectations.
 - `CHANGELOG.md` — tracked repository-level changes.
+- `COMMERCIAL-LICENSE.md` — commercial rights and separate written permission guidance.
 - `RELEASING.md` — release cadence and semantic versioning policy.
+- `LICENSE` — canonical non-commercial license terms.
+- `NOTICE` — short-form license notice and summary.
 - `.env.example` — local environment variable template for safe operator setup.
 - `install.sh` — primary lifecycle automation script.
 - `update.sh` — wrapper for `install.sh update`.
@@ -140,6 +147,7 @@ nemoclaw-openclaw/
 - `docs/install-script.md` — install and lifecycle script usage guide.
 - `docs/incident-response.md` — incident triage and containment guide.
 - `docs/known-limitations.md` — documented limits and non-goals guide.
+- `docs/licensing.md` — non-commercial licensing explainer and commercial-use boundary guide.
 - `docs/logging.md` — log collection and triage guide.
 - `docs/maintenance.md` — routine maintenance guide.
 - `docs/maintenance-windows.md` — maintenance planning and validation guide.

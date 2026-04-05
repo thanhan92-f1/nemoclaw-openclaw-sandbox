@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/install.sh",
+      "destination": "https://raw.githubusercontent.com/thanhan92-f1/nemoclaw-openclaw-sandbox/main/install.sh"
+    }
+  ]
+}

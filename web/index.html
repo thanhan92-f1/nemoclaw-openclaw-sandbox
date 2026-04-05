@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NemoClaw OpenClaw Sandbox - Cloud Service or VPS Deployment</title>
+  <meta name="description" content="Operational deployment kit for NemoClaw OpenClaw Sandbox on a cloud service or VPS. Includes install automation, reverse proxy setup, service management, security guidance, and day-2 operations documentation.">
+  <link rel="icon" type="image/svg+xml" href="logo-icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --panel: #121212;
+      --panel-2: #171717;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --line: rgba(118, 185, 0, 0.18);
+      --brand: #76b900;
+      --brand-2: #8ed600;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(118, 185, 0, 0.12), transparent 28%),
+        linear-gradient(180deg, #0b0b0b 0%, #080808 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--brand);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--brand-2);
+    }
+
+    code {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .container {
+      width: min(1140px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      background: rgba(10, 10, 10, 0.82);
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav .container {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--brand);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      font-size: 1.1rem;
+    }
+
+    .logo img {
+      width: 34px;
+      height: 34px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      color: #d1d5db;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      padding: 92px 0 42px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.95fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-card,
+    .panel,
+    .code-block,
+    .stat,
+    .timeline-step,
+    .table-wrap,
+    .footer-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+    }
+
+    .hero-card {
+      padding: 36px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(118, 185, 0, 0.12);
+      color: #d9f99d;
+      border: 1px solid rgba(118, 185, 0, 0.25);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.88rem;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
+    }
+
+    .accent {
+      color: var(--brand);
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.02rem;
+      max-width: 62ch;
+    }
+
+    .hero-copy {
+      margin-top: 14px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-weight: 600;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--brand);
+      color: #081100;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .panel {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .panel h3,
+    .section-title,
+    .card h3,
+    .timeline-step h3,
+    .footer-card h3 {
+      letter-spacing: -0.02em;
+    }
+
+    .panel ul,
+    .feature-list,
+    .docs-list,
+    .footer-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .panel li,
+    .feature-item,
+    .docs-list li,
+    .footer-list li {
+      color: #d1d5db;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--brand);
+      margin-top: 8px;
+      flex: 0 0 auto;
+    }
+
+    .code-block {
+      margin-top: 24px;
+      padding: 18px;
+      overflow: auto;
+    }
+
+    .terminal-dots {
+      display: flex;
+      gap: 7px;
+      margin-bottom: 14px;
+    }
+
+    .terminal-dots span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #4b5563;
+    }
+
+    .terminal-dots span:nth-child(1) { background: #ef4444; }
+    .terminal-dots span:nth-child(2) { background: #f59e0b; }
+    .terminal-dots span:nth-child(3) { background: #22c55e; }
+
+    .command-row {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .command-row code {
+      color: #d9f99d;
+      font-size: 0.95rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+      flex: 1 1 600px;
+    }
+
+    .copy-btn {
+      cursor: pointer;
+      border: 1px solid rgba(118, 185, 0, 0.3);
+      background: rgba(118, 185, 0, 0.12);
+      color: #eaffc7;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-weight: 600;
+    }
+
+    .copy-btn.copied {
+      background: rgba(34, 197, 94, 0.18);
+      border-color: rgba(34, 197, 94, 0.4);
+    }
+
+    section {
+      padding: 42px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 22px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    .grid-3,
+    .grid-4,
+    .docs-grid,
+    .footer-grid,
+    .stats {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-3,
+    .docs-grid,
+    .footer-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-4,
+    .stats {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card,
+    .stat {
+      background: var(--panel);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+
+    .card p,
+    .stat p,
+    .timeline-step p,
+    .footer-card p {
+      color: var(--muted);
+    }
+
+    .card-icon {
+      width: 42px;
+      height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: rgba(118, 185, 0, 0.12);
+      color: var(--brand);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .stats {
+      margin-top: 18px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+      color: #f3f4f6;
+    }
+
+    .arch-wrap {
+      display: grid;
+      gap: 16px;
+    }
+
+    .arch-layer {
+      background: var(--panel);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .arch-label {
+      display: inline-block;
+      color: #d9f99d;
+      font-size: 0.86rem;
+      margin-bottom: 10px;
+    }
+
+    .arch-nodes {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .arch-node {
+      flex: 1 1 220px;
+      background: var(--panel-2);
+      border: 1px solid rgba(118, 185, 0, 0.16);
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .arch-node strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .arch-arrow {
+      text-align: center;
+      color: var(--brand);
+      font-size: 1.4rem;
+    }
+
+    .table-wrap {
+      overflow: auto;
+      padding: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    th {
+      color: #f3f4f6;
+      background: rgba(118, 185, 0, 0.08);
+    }
+
+    td {
+      color: #d1d5db;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-step {
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .step-label {
+      color: #d9f99d;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .timeline-step h3 {
+      margin: 6px 0 8px;
+    }
+
+    footer {
+      padding: 24px 0 48px;
+    }
+
+    .footer-grid {
+      margin-bottom: 18px;
+    }
+
+    .footer-card {
+      padding: 22px;
+    }
+
+    .footer-note {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .footer-note .heart {
+      color: #f87171;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .grid-4,
+      .grid-3,
+      .docs-grid,
+      .footer-grid,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      nav .container {
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <div class="logo">
+        <img src="logo-hero.svg" alt="NemoClaw OpenClaw Sandbox logo">
+        <span>NemoClaw OpenClaw Sandbox</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#architecture">Architecture</a></li>
+        <li><a href="#deployment">Deployment</a></li>
+        <li><a href="#docs">Docs</a></li>
+        <li><a href="#install">Install</a></li>
+        <li><a href="#license">License</a></li>
+        <li><a href="https://github.com/thanhan92-f1/nemoclaw-openclaw-sandbox" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="hero-card fade-in">
+        <div class="hero-badge">Operational deployment repository for cloud service or VPS</div>
+        <h1>NemoClaw <span class="accent">OpenClaw</span> Sandbox</h1>
+        <p>
+          A documentation-first repository for deploying `NemoClaw` with `OpenClaw` on Ubuntu `24.04`, publishing it safely through `Caddy`, and operating it with repeatable install, update, rollback, and uninstall workflows.
+        </p>
+        <p class="hero-copy">
+          The repository aligns installation steps, provider configuration, policy handling, runbooks, governance files, and lifecycle scripts so operators can manage the service consistently.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#install">Install</a>
+          <a class="btn btn-secondary" href="#docs">Browse Docs</a>
+        </div>
+
+        <div class="code-block">
+          <div class="terminal-dots"><span></span><span></span><span></span></div>
+          <div class="command-row">
+            <code id="install-command">curl -fsSL https://nemoclaw.hitechclaw.com/install.sh | bash</code>
+            <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="panel fade-in">
+        <h3>Repository Highlights</h3>
+        <ul>
+          <li><span class="dot"></span><span>`install.sh`, `update.sh`, `repo-sync.sh`, and `uninstall.sh` for lifecycle control</span></li>
+          <li><span class="dot"></span><span>Guided setup for `Docker`, `OpenShell`, `NemoClaw`, `Caddy`, and `systemd`</span></li>
+          <li><span class="dot"></span><span>Security, troubleshooting, rollback, incident, audit, and readiness documentation</span></li>
+          <li><span class="dot"></span><span>Provider workflows for `Anthropic`, `OpenAI`, and optional `Telegram` integration</span></li>
+          <li><span class="dot"></span><span>Governance files including CI, issue templates, changelog, and release policy</span></li>
+        </ul>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section id="overview">
+      <div class="container">
+        <div class="section-heading fade-in">
+          <h2 class="section-title">What This Project Delivers</h2>
+          <p class="section-subtitle">Built for repeatable deployment and strong operational hygiene, not generic product marketing.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card fade-in">
+            <div class="card-icon">01</div>
+            <h3>Documented Bootstrap</h3>
+            <p>Follow repository guides to install the host runtime, onboard the sandbox, configure the reverse proxy, and keep the connection persistent across reboot.</p>
+          </article>
+          <article class="card fade-in">
+            <div class="card-icon">02</div>
+            <h3>Lifecycle Automation</h3>
+            <p>Pin repository refs for controlled upgrades or downgrades and use managed cleanup when decommissioning the host.</p>
+          </article>
+          <article class="card fade-in">
+            <div class="card-icon">03</div>
+            <h3>Operations Baseline</h3>
+            <p>Use checklists, validation matrices, readiness reviews, maintenance planning, and incident documents to support day-2 operations.</p>
+          </article>
+          <article class="card fade-in">
+            <div class="card-icon">04</div>
+            <h3>Security Guidance</h3>
+            <p>Limit public exposure to `80/443`, keep the gateway on loopback, store provider secrets on the host, and follow documented hardening rules.</p>
+          </article>
+          <article class="card fade-in">
+            <div class="card-icon">05</div>
+            <h3>Provider and Policy Model</h3>
+            <p>Register providers through `OpenShell`, set active inference cleanly, and apply network or channel policies with documented workflows.</p>
+          </article>
+          <article class="card fade-in">
+            <div class="card-icon">06</div>
+            <h3>Repository Governance</h3>
+            <p>Contribution rules, CI validation, release notes, templates, and changelog management are already organized in the repository.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="security">
+      <div class="container">
+        <div class="section-heading fade-in">
+          <h2 class="section-title">Security Baseline</h2>
+          <p class="section-subtitle">Operational controls reflected from the repository documentation.</p>
+        </div>
+        <div class="grid-4">
+          <article class="card fade-in">
+            <div class="card-icon">🔒</div>
+            <h3>Private Gateway</h3>
+            <p>`OpenClaw Gateway` is expected on `127.0.0.1:18789`, with public access handled through `Caddy`.</p>
+          </article>
+          <article class="card fade-in">
+            <div class="card-icon">🌐</div>
+            <h3>Minimal Exposure</h3>
+            <p>Only ports `80` and `443` should be public. Internal ports remain private to the host.</p>
+          </article>
+          <article class="card fade-in">
+            <div class="card-icon">🗝️</div>
+            <h3>Credential Handling</h3>
+            <p>Provider credentials belong on the host via `OpenShell` provider configuration rather than in public-facing configs.</p>
+          </article>
+          <article class="card fade-in">
+            <div class="card-icon">🛡️</div>
+            <h3>Controlled Recovery</h3>
+            <p>Rollback, disaster recovery, audit, and decommissioning flows are documented to reduce improvised changes.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="architecture">
+      <div class="container">
+        <div class="section-heading fade-in">
+          <h2 class="section-title">Reference Architecture</h2>
+          <p class="section-subtitle">A simple deployment chain from public domain to private gateway and provider-backed inference.</p>
+        </div>
+        <div class="arch-wrap fade-in">
+          <div class="arch-layer">
+            <span class="arch-label">Public edge</span>
+            <div class="arch-nodes">
+              <div class="arch-node"><strong>Domain</strong><span>Cloud service or VPS DNS entry</span></div>
+              <div class="arch-node"><strong>Caddy</strong><span>TLS termination and reverse proxy</span></div>
+            </div>
+          </div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-layer">
+            <span class="arch-label">Private host</span>
+            <div class="arch-nodes">
+              <div class="arch-node"><strong>OpenClaw Gateway</strong><span>Loopback endpoint on `127.0.0.1:18789`</span></div>
+            </div>
+          </div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-layer">
+            <span class="arch-label">Control plane</span>
+            <div class="arch-nodes">
+              <div class="arch-node"><strong>NemoClaw</strong><span>Onboard and connect workflow</span></div>
+              <div class="arch-node"><strong>OpenShell</strong><span>Providers and policy management</span></div>
+              <div class="arch-node"><strong>systemd</strong><span>Persistent reconnect service</span></div>
+              <div class="arch-node"><strong>Docker</strong><span>Runtime dependency for documented stack</span></div>
+            </div>
+          </div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-layer">
+            <span class="arch-label">Provider integrations</span>
+            <div class="arch-nodes">
+              <div class="arch-node"><strong>Anthropic</strong><span>Supported provider workflow</span></div>
+              <div class="arch-node"><strong>OpenAI</strong><span>Optional provider workflow</span></div>
+              <div class="arch-node"><strong>Telegram</strong><span>Optional channel integration</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat fade-in"><strong>Ubuntu 24.04</strong><p>Documented target platform</p></div>
+          <div class="stat fade-in"><strong>80 / 443</strong><p>Expected public ports</p></div>
+          <div class="stat fade-in"><strong>127.0.0.1:18789</strong><p>Private gateway bind</p></div>
+          <div class="stat fade-in"><strong>4 lifecycle scripts</strong><p>Install, update, sync, uninstall</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="deployment">
+      <div class="container">
+        <div class="section-heading fade-in">
+          <h2 class="section-title">Deployment Baseline</h2>
+          <p class="section-subtitle">Starting assumptions from `INSTALL.md` and related runbooks.</p>
+        </div>
+        <div class="table-wrap fade-in">
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Baseline</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Platform</td>
+                <td>Cloud service or VPS</td>
+                <td>Root shell access required</td>
+              </tr>
+              <tr>
+                <td>Operating system</td>
+                <td>Ubuntu 24.04</td>
+                <td>Primary documented environment</td>
+              </tr>
+              <tr>
+                <td>Minimum size</td>
+                <td>4 vCPU / 8 GB RAM / 50 GB disk</td>
+                <td>Recommended initial host profile</td>
+              </tr>
+              <tr>
+                <td>Public ports</td>
+                <td>80 and 443</td>
+                <td>Do not expose 18789 publicly</td>
+              </tr>
+              <tr>
+                <td>Core services</td>
+                <td>Docker, OpenShell, NemoClaw, Caddy, systemd</td>
+                <td>Installed through documented sequence</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="install">
+      <div class="container">
+        <div class="section-heading fade-in">
+          <h2 class="section-title">Install Flow</h2>
+          <p class="section-subtitle">Use the script, then continue with the repository runbooks for domain, provider, and service validation.</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-step fade-in">
+            <span class="step-label">Step 1</span>
+            <h3>Prepare the host</h3>
+            <p>Update the VPS, configure firewall rules, and ensure only `80/443` will be public.</p>
+          </article>
+          <article class="timeline-step fade-in">
+            <span class="step-label">Step 2</span>
+            <h3>Run the installer</h3>
+            <p>Use `install.sh` for repo-based setup or pin a repository ref for a controlled version.</p>
+          </article>
+          <article class="timeline-step fade-in">
+            <span class="step-label">Step 3</span>
+            <h3>Onboard and connect</h3>
+            <p>Run the `NemoClaw` onboarding flow, connect the sandbox, and verify the loopback gateway is available.</p>
+          </article>
+          <article class="timeline-step fade-in">
+            <span class="step-label">Step 4</span>
+            <h3>Persist services</h3>
+            <p>Create SSH keepalive settings and enable the `systemd` reconnect service.</p>
+          </article>
+          <article class="timeline-step fade-in">
+            <span class="step-label">Step 5</span>
+            <h3>Publish with Caddy</h3>
+            <p>Proxy the public domain to `127.0.0.1:18789` and validate TLS and reachability.</p>
+          </article>
+          <article class="timeline-step fade-in">
+            <span class="step-label">Step 6</span>
+            <h3>Operate with docs</h3>
+            <p>Use the troubleshooting, monitoring, rollback, validation, and readiness documents for day-2 work.</p>
+          </article>
+        </div>
+        <div class="code-block fade-in">
+          <div class="terminal-dots"><span></span><span></span><span></span></div>
+          <div class="command-row">
+            <code>curl -fsSL https://raw.githubusercontent.com/thanhan92-f1/nemoclaw-openclaw-sandbox/main/install.sh | sudo bash -s -- install</code>
+            <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="docs">
+      <div class="container">
+        <div class="section-heading fade-in">
+          <h2 class="section-title">Documentation Sets</h2>
+          <p class="section-subtitle">Core documents grouped by operator need.</p>
+        </div>
+        <div class="docs-grid">
+          <article class="footer-card fade-in">
+            <h3>Bootstrap</h3>
+            <ul class="docs-list">
+              <li><span class="dot"></span><span>`INSTALL.md`</span></li>
+              <li><span class="dot"></span><span>`docs/cloudservice-vps-setup.md`</span></li>
+              <li><span class="dot"></span><span>`docs/services-and-dependencies.md`</span></li>
+              <li><span class="dot"></span><span>`docs/install-script.md`</span></li>
+            </ul>
+          </article>
+          <article class="footer-card fade-in">
+            <h3>Operations</h3>
+            <ul class="docs-list">
+              <li><span class="dot"></span><span>`docs/command-reference.md`</span></li>
+              <li><span class="dot"></span><span>`docs/troubleshooting.md`</span></li>
+              <li><span class="dot"></span><span>`docs/monitoring.md`</span></li>
+              <li><span class="dot"></span><span>`docs/rollback-strategy.md`</span></li>
+              <li><span class="dot"></span><span>`docs/service-readiness.md`</span></li>
+            </ul>
+          </article>
+          <article class="footer-card fade-in">
+            <h3>Governance</h3>
+            <ul class="docs-list">
+              <li><span class="dot"></span><span>`CONTRIBUTING.md`</span></li>
+              <li><span class="dot"></span><span>`SECURITY.md`</span></li>
+              <li><span class="dot"></span><span>`RELEASING.md`</span></li>
+              <li><span class="dot"></span><span>`CHANGELOG.md`</span></li>
+              <li><span class="dot"></span><span>`docs/README.md`</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="license">
+      <div class="container">
+        <div class="section-heading fade-in">
+          <h2 class="section-title">License</h2>
+          <p class="section-subtitle">Non-commercial use only. Commercial rights remain reserved unless separately granted in writing.</p>
+        </div>
+        <div class="footer-grid">
+          <article class="footer-card fade-in">
+            <h3>Usage Terms</h3>
+            <ul class="footer-list">
+              <li><span class="dot"></span><span>Allowed: personal learning, education, research, testing, evaluation, and internal non-commercial use.</span></li>
+              <li><span class="dot"></span><span>Attribution: `Nguyen Thanh An by Pho Tue SoftWare Solutions JSC`.</span></li>
+              <li><span class="dot"></span><span>Important: GitHub or npm availability does not grant any commercial right.</span></li>
+            </ul>
+          </article>
+          <article class="footer-card fade-in">
+            <h3>Not Allowed Without Permission</h3>
+            <ul class="footer-list">
+              <li><span class="dot"></span><span>Commercialization, resale, sublicensing, or derivative commercial products.</span></li>
+              <li><span class="dot"></span><span>Paid consulting, implementation, integration, deployment, training, or client delivery.</span></li>
+              <li><span class="dot"></span><span>Paid products, hosted services, SaaS, subscriptions, bundles, marketplace listings, or revenue-generating workflows.</span></li>
+            </ul>
+          </article>
+          <article class="footer-card fade-in">
+            <h3>Repository links</h3>
+            <ul class="footer-list">
+              <li><span class="dot"></span><span><a href="https://github.com/thanhan92-f1/nemoclaw-openclaw-sandbox/blob/main/LICENSE" target="_blank" rel="noopener">View License</a></span></li>
+              <li><span class="dot"></span><span><a href="https://github.com/thanhan92-f1/nemoclaw-openclaw-sandbox/blob/main/NOTICE" target="_blank" rel="noopener">License Notice</a></span></li>
+              <li><span class="dot"></span><span><a href="https://github.com/thanhan92-f1/nemoclaw-openclaw-sandbox/blob/main/COMMERCIAL-LICENSE.md" target="_blank" rel="noopener">Commercial Licensing</a></span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="footer-note">
+        Built <span class="heart">with care</span> for the OpenClaw community.<br>
+        Repository focus: reproducible deployment, lifecycle automation, and enterprise-style operational documentation.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    function copyCommand(button) {
+      var command = 'curl -fsSL https://raw.githubusercontent.com/thanhan92-f1/nemoclaw-openclaw-sandbox/main/install.sh | sudo bash -s -- install';
+      navigator.clipboard.writeText(command).then(function () {
+        button.textContent = 'Copied!';
+        button.classList.add('copied');
+        setTimeout(function () {
+          button.textContent = 'Copy';
+          button.classList.remove('copied');
+        }, 1800);
+      }).catch(function () {
+        var textarea = document.createElement('textarea');
+        textarea.value = command;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        button.textContent = 'Copied!';
+        button.classList.add('copied');
+        setTimeout(function () {
+          button.textContent = 'Copy';
+          button.classList.remove('copied');
+        }, 1800);
+      });
+    }
+
+    (function () {
+      var nodes = document.querySelectorAll('.fade-in');
+      if (!('IntersectionObserver' in window)) {
+        nodes.forEach(function (node) { node.classList.add('visible'); });
+        return;
+      }
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      nodes.forEach(function (node) { observer.observe(node); });
+    })();
+  </script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 # NemoClaw OpenClaw Sandbox
 
 [![CI](https://github.com/thanhan92-f1/nemoclaw-openclaw-sandbox/actions/workflows/ci.yml/badge.svg)](https://github.com/thanhan92-f1/nemoclaw-openclaw-sandbox/actions/workflows/ci.yml)
-[![License: GPL-3.0-or-later](https://img.shields.io/badge/license-GPL--3.0--or--later-blue.svg)](./LICENSE)
+[![License: Non-commercial](https://img.shields.io/badge/license-non--commercial-blue.svg)](./LICENSE)
 [![Docs](https://img.shields.io/badge/docs-operational-green.svg)](./docs/README.md)
 
 Operational documentation and repository scaffolding for deploying a `NemoClaw` sandbox with `OpenClaw` on a cloud service or VPS.
@@ -129,6 +129,32 @@ Primary sandbox repository reference:
 
 ## License
 
-See `LICENSE`.
+Non-commercial use only.
+
+### Usage Terms
+
+Allowed without separate commercial permission:
+
+- personal learning and private experimentation
+- academic or educational work
+- internal research, testing, and evaluation
+- internal non-commercial use by a company or organization
+
+Not allowed without prior written commercial permission:
+
+- selling, sublicensing, or commercializing the project or derivatives
+- paid consulting, implementation, integration, deployment, or training
+- paid client work, contract delivery, managed services, or outsourcing
+- including the project in a paid product, hosted service, SaaS, bundle, or marketplace listing
+- using the project in a workflow intended to generate revenue or commercial advantage
+
+Important: availability on GitHub or npm does not grant any commercial right.
+
+References:
+
+- `LICENSE` — controlling license terms
+- `NOTICE` — short license notice
+- `COMMERCIAL-LICENSE.md` — commercial licensing information
+- `docs/licensing.md` — operator-friendly licensing explainer
 
 Attribution: `Nguyen Thanh An by Pho Tue SoftWare Solutions JSC`

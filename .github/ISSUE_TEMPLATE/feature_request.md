@@ -37,3 +37,7 @@ Describe how completion should be evaluated.
 ## Additional Context
 
 Add links, screenshots, or operational examples if relevant.
+
+## License Check
+
+- [ ] This request does not assume resale, paid delivery, hosted commercialization, or other commercial rights unless separately authorized in writing

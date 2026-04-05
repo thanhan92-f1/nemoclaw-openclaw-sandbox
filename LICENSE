@@ -6,17 +6,27 @@ This repository and all associated source code, scripts, configuration files,
 documentation, website assets, and related materials (collectively, the
 "Software") are protected by copyright.
 
+Important: availability of the Software on GitHub, npm, or any other public
+source distribution channel does not grant any commercial right.
+
 1. Limited License Grant
 
 Subject to the terms of this license, you are granted a limited, revocable,
 non-exclusive, non-transferable, non-sublicensable license to:
 
 - use, copy, modify, and run the Software by an individual, company,
-	organization, institution, or other legal entity solely for private,
-	internal, educational, research, evaluation, or other strictly
-	non-commercial purposes; and
+  organization, institution, or other legal entity solely for private,
+  internal, educational, research, evaluation, or other strictly
+  non-commercial purposes; and
 - create derivative works solely for private, internal, educational,
-	research, evaluation, or other strictly non-commercial use.
+  research, evaluation, or other strictly non-commercial use.
+
+Allowed non-commercial use includes, for example:
+
+- personal learning and private experimentation;
+- academic or educational work;
+- internal research, testing, and evaluation; and
+- internal non-commercial use by a company or organization.
 
 2. Commercial Use Is Prohibited
 
@@ -42,6 +52,16 @@ For clarity, use by individuals and organizations is permitted only when the
 use is strictly non-commercial. Third-party commercialization, consulting for
 third parties, revenue-generating use, client service delivery, and all other
 commercial use are forbidden.
+
+For clarity, the following are not allowed without prior written commercial
+permission:
+
+- selling, sublicensing, or commercializing the Software or derivative works;
+- paid consulting, implementation, integration, deployment, training, or
+	support services;
+- paid client work, contract delivery, managed services, or outsourcing; and
+- paid products, hosted services, SaaS, subscriptions, bundles, marketplace
+	listings, or other revenue-generating workflows.
 
 3. Exclusive Commercial Rights Reservation
 

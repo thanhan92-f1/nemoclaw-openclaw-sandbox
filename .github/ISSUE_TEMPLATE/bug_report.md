@@ -47,3 +47,7 @@ Paste relevant logs, errors, or screenshots.
 ## Additional Context
 
 Add any related ports, files, policies, or provider settings.
+
+## License Check
+
+- [ ] This report does not assume any commercial right beyond the repository's published non-commercial terms

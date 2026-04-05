@@ -2,6 +2,10 @@
 
 ## Documents
 
+- `../LICENSE` — canonical non-commercial license terms for the repository.
+- `../NOTICE` — short-form license notice and usage summary.
+- `../COMMERCIAL-LICENSE.md` — commercial licensing and separate written permission guidance.
+- `licensing.md` — operator-friendly explainer for non-commercial use and commercial restrictions.
 - `cloudservice-vps-setup.md` — full deployment runbook for cloud service or VPS deployment.
 - `services-and-dependencies.md` — required services, dependencies, ports, files, and ownership.
 - `command-reference.md` — operations, policies, skills, plugins, and monitoring commands.
@@ -54,50 +58,54 @@
 ## Recommended Reading Order
 
 1. `../INSTALL.md`
-2. `cloudservice-vps-setup.md`
-3. `services-and-dependencies.md`
-4. `command-reference.md`
-5. `providers.md`
-6. `telegram-setup.md`
-7. `policies.md`
-8. `skills-and-plugins.md`
-9. `troubleshooting.md`
-10. `operations-checklist.md`
-11. `backup-and-restore.md`
-12. `upgrade-runbook.md`
-13. `install-script.md`
-14. `hardening.md`
-15. `disaster-recovery.md`
-16. `monitoring.md`
-17. `logging.md`
-18. `faq.md`
-19. `networking.md`
-20. `provider-rotation.md`
-21. `release-checklist.md`
-22. `security-checklist.md`
-23. `maintenance.md`
-24. `migration.md`
-25. `known-limitations.md`
-26. `incident-response.md`
-27. `access-control.md`
-28. `credential-handling.md`
-29. `decommissioning.md`
-30. `operations-sla.md`
-31. `support-model.md`
-32. `audit-checklist.md`
-33. `change-management.md`
-34. `oncall-runbook.md`
-35. `risk-register.md`
-36. `acceptance-checklist.md`
-37. `service-dependencies-matrix.md`
-38. `capacity-planning.md`
-39. `configuration-baseline.md`
-40. `rollback-strategy.md`
-41. `post-incident-review.md`
-42. `operator-handover.md`
-43. `maintenance-windows.md`
-44. `control-mapping.md`
-45. `validation-matrix.md`
+2. `../LICENSE`
+3. `../NOTICE`
+4. `../COMMERCIAL-LICENSE.md`
+5. `licensing.md`
+6. `cloudservice-vps-setup.md`
+7. `services-and-dependencies.md`
+8. `command-reference.md`
+9. `providers.md`
+10. `telegram-setup.md`
+11. `policies.md`
+12. `skills-and-plugins.md`
+13. `troubleshooting.md`
+14. `operations-checklist.md`
+15. `backup-and-restore.md`
+16. `upgrade-runbook.md`
+17. `install-script.md`
+18. `hardening.md`
+19. `disaster-recovery.md`
+20. `monitoring.md`
+21. `logging.md`
+22. `faq.md`
+23. `networking.md`
+24. `provider-rotation.md`
+25. `release-checklist.md`
+26. `security-checklist.md`
+27. `maintenance.md`
+28. `migration.md`
+29. `known-limitations.md`
+30. `incident-response.md`
+31. `access-control.md`
+32. `credential-handling.md`
+33. `decommissioning.md`
+34. `operations-sla.md`
+35. `support-model.md`
+36. `audit-checklist.md`
+37. `change-management.md`
+38. `oncall-runbook.md`
+39. `risk-register.md`
+40. `acceptance-checklist.md`
+41. `service-dependencies-matrix.md`
+42. `capacity-planning.md`
+43. `configuration-baseline.md`
+44. `rollback-strategy.md`
+45. `post-incident-review.md`
+46. `operator-handover.md`
+47. `maintenance-windows.md`
+48. `control-mapping.md`
+49. `validation-matrix.md`
 46. `communications-plan.md`
 47. `dependency-review.md`
 48. `service-readiness.md`

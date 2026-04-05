@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Background -->
+  <rect width="512" height="512" rx="80" fill="#0d1117"/>
+
+  <!-- C shape - bold, open on the right -->
+  <path d="M 300 120 C 220 100, 120 140, 120 250 C 120 360, 220 400, 300 380"
+        stroke="#76B900" stroke-width="36" stroke-linecap="round" fill="none"/>
+
+  <!-- Bolt inside the C -->
+  <polygon points="270,160 230,245 265,245 225,340 285,255 250,255 290,160"
+           fill="#E85D3A"/>
+
+  <!-- Text -->
+  <text x="256" y="460" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="700" font-size="48" letter-spacing="3">
+    <tspan fill="#76B900">claw</tspan><tspan fill="#E85D3A">spark</tspan>
+  </text>
+</svg>

@@ -44,3 +44,7 @@ Describe what answer or clarification would unblock you.
 ## Additional Context
 
 Add logs, screenshots, file paths, or links if relevant.
+
+## License Check
+
+- [ ] I reviewed the published non-commercial usage terms before opening this question
