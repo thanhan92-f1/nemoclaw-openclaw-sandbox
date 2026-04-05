@@ -55,6 +55,10 @@ The format is based on `Keep a Changelog` and this repository currently tracks d
 - `docs/maintenance-windows.md`
 - `docs/control-mapping.md`
 - `docs/validation-matrix.md`
+- `docs/communications-plan.md`
+- `docs/dependency-review.md`
+- `docs/service-readiness.md`
+- `docs/operator-onboarding.md`
 
 ### Changed
 

@@ -25,9 +25,11 @@ nemoclaw-openclaw/
 │  ├─ change-management.md
 │  ├─ cloudservice-vps-setup.md
 │  ├─ command-reference.md
+│  ├─ communications-plan.md
 │  ├─ configuration-baseline.md
 │  ├─ control-mapping.md
 │  ├─ credential-handling.md
+│  ├─ dependency-review.md
 │  ├─ disaster-recovery.md
 │  ├─ decommissioning.md
 │  ├─ faq.md
@@ -42,6 +44,7 @@ nemoclaw-openclaw/
 │  ├─ monitoring.md
 │  ├─ networking.md
 │  ├─ oncall-runbook.md
+│  ├─ operator-onboarding.md
 │  ├─ operator-handover.md
 │  ├─ operations-checklist.md
 │  ├─ operations-sla.md
@@ -56,6 +59,7 @@ nemoclaw-openclaw/
 │  ├─ service-dependencies-matrix.md
 │  ├─ skills-and-plugins.md
 │  ├─ support-model.md
+│  ├─ service-readiness.md
 │  ├─ telegram-setup.md
 │  ├─ troubleshooting.md
 │  ├─ upgrade-runbook.md
@@ -124,9 +128,11 @@ nemoclaw-openclaw/
 - `docs/cloudservice-vps-setup.md` — consolidated cloud service or VPS deployment runbook.
 - `docs/services-and-dependencies.md` — required services, dependencies, ports, and file locations.
 - `docs/command-reference.md` — operational command catalog.
+- `docs/communications-plan.md` — operational communication planning guide.
 - `docs/configuration-baseline.md` — expected runtime and host baseline guide.
 - `docs/control-mapping.md` — control coverage and risk mapping guide.
 - `docs/credential-handling.md` — credential handling and rotation hygiene guide.
+- `docs/dependency-review.md` — dependency review and follow-up guide.
 - `docs/disaster-recovery.md` — host rebuild and service recovery guide.
 - `docs/decommissioning.md` — host retirement and shutdown guide.
 - `docs/faq.md` — quick operator FAQ and navigation guide.
@@ -141,6 +147,7 @@ nemoclaw-openclaw/
 - `docs/monitoring.md` — operational monitoring and health review guide.
 - `docs/networking.md` — network exposure and routing guide.
 - `docs/oncall-runbook.md` — first-response and escalation guide.
+- `docs/operator-onboarding.md` — new operator onboarding guide.
 - `docs/operator-handover.md` — operational handover guide.
 - `docs/telegram-setup.md` — Telegram bridge and dashboard channel setup.
 - `docs/operations-sla.md` — internal service expectation guide.
@@ -155,6 +162,7 @@ nemoclaw-openclaw/
 - `docs/service-dependencies-matrix.md` — runtime dependency summary guide.
 - `docs/skills-and-plugins.md` — skill import and plugin operations guide.
 - `docs/support-model.md` — support routing and escalation guide.
+- `docs/service-readiness.md` — service readiness and go-live guide.
 - `docs/troubleshooting.md` — troubleshooting and recovery guide.
 - `docs/operations-checklist.md` — install and operational checklists.
 - `docs/upgrade-runbook.md` — upgrade planning, validation, and rollback guide.

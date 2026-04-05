@@ -46,6 +46,10 @@
 - `maintenance-windows.md` — planning and validation model for maintenance windows.
 - `control-mapping.md` — mapping of operational controls to deployment risk areas.
 - `validation-matrix.md` — minimum validation expectations for common change types.
+- `communications-plan.md` — communication model for planned work, incidents, and handover.
+- `dependency-review.md` — lightweight dependency review and follow-up model.
+- `service-readiness.md` — minimum readiness criteria after install, change, or recovery.
+- `operator-onboarding.md` — onboarding path and basic responsibilities for new operators.
 
 ## Recommended Reading Order
 
@@ -94,6 +98,10 @@
 43. `maintenance-windows.md`
 44. `control-mapping.md`
 45. `validation-matrix.md`
+46. `communications-plan.md`
+47. `dependency-review.md`
+48. `service-readiness.md`
+49. `operator-onboarding.md`
 
 ## Operational Model
 

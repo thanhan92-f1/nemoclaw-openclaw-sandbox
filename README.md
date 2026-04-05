@@ -122,6 +122,10 @@ Primary sandbox repository reference:
 - `docs/maintenance-windows.md` — planning and validation model for maintenance windows
 - `docs/control-mapping.md` — mapping of operational controls to deployment risk areas
 - `docs/validation-matrix.md` — minimum validation expectations for common change types
+- `docs/communications-plan.md` — communication model for planned work, incidents, and handover
+- `docs/dependency-review.md` — lightweight dependency review and follow-up model
+- `docs/service-readiness.md` — minimum readiness criteria after install, change, or recovery
+- `docs/operator-onboarding.md` — onboarding path and basic responsibilities for new operators
 
 ## License
 
