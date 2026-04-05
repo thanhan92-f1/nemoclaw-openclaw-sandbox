@@ -430,9 +430,21 @@
     }
 
     .arch-arrow {
+      width: 100%;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .arch-arrow::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      border-right: 3px solid var(--brand);
+      border-bottom: 3px solid var(--brand);
+      transform: rotate(45deg);
       text-align: center;
-      color: var(--brand);
-      font-size: 1.4rem;
     }
 
     .table-wrap {
@@ -563,7 +575,7 @@
         <div class="code-block">
           <div class="terminal-dots"><span></span><span></span><span></span></div>
           <div class="command-row">
-            <code id="install-command">curl -fsSL https://nemoclaw.hitechclaw.com/install.sh | bash</code>
+            <code id="install-command">curl -fsSL https://nemclaw.hitechclaw.com/install.sh | sudo bash -s -- install</code>
             <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
           </div>
         </div>
@@ -669,14 +681,14 @@
               <div class="arch-node"><strong>Caddy</strong><span>TLS termination and reverse proxy</span></div>
             </div>
           </div>
-          <div class="arch-arrow">↓</div>
+          <div class="arch-arrow" aria-hidden="true"></div>
           <div class="arch-layer">
             <span class="arch-label">Private host</span>
             <div class="arch-nodes">
               <div class="arch-node"><strong>OpenClaw Gateway</strong><span>Loopback endpoint on `127.0.0.1:18789`</span></div>
             </div>
           </div>
-          <div class="arch-arrow">↓</div>
+          <div class="arch-arrow" aria-hidden="true"></div>
           <div class="arch-layer">
             <span class="arch-label">Control plane</span>
             <div class="arch-nodes">
@@ -686,7 +698,7 @@
               <div class="arch-node"><strong>Docker</strong><span>Runtime dependency for documented stack</span></div>
             </div>
           </div>
-          <div class="arch-arrow">↓</div>
+          <div class="arch-arrow" aria-hidden="true"></div>
           <div class="arch-layer">
             <span class="arch-label">Provider integrations</span>
             <div class="arch-nodes">
@@ -793,7 +805,7 @@
         <div class="code-block fade-in">
           <div class="terminal-dots"><span></span><span></span><span></span></div>
           <div class="command-row">
-            <code>curl -fsSL https://raw.githubusercontent.com/thanhan92-f1/nemoclaw-openclaw-sandbox/main/install.sh | sudo bash -s -- install</code>
+            <code>curl -fsSL https://nemclaw.hitechclaw.com/install.sh | sudo bash -s -- install</code>
             <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
           </div>
         </div>
@@ -888,7 +900,7 @@
 
   <script>
     function copyCommand(button) {
-      var command = 'curl -fsSL https://raw.githubusercontent.com/thanhan92-f1/nemoclaw-openclaw-sandbox/main/install.sh | sudo bash -s -- install';
+      var command = 'curl -fsSL https://nemclaw.hitechclaw.com/install.sh | sudo bash -s -- install';
       navigator.clipboard.writeText(command).then(function () {
         button.textContent = 'Copied!';
         button.classList.add('copied');
