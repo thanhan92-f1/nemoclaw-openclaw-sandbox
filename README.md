@@ -70,7 +70,7 @@ Primary sandbox repository reference:
 ## Documentation Map
 
 - `STRUCTURE.md` — repository layout
-- `INSTALL.md` — installation and bootstrap guide
+- `INSTALL.md` — installation and bootstrap guide, including the deployment-facing license notice
 - `SECURITY.md` — security reporting and operational hardening notes
 - `CHANGELOG.md` — tracked repository changes
 - `RELEASING.md` — release and versioning policy
@@ -148,7 +148,7 @@ Not allowed without prior written commercial permission:
 - including the project in a paid product, hosted service, SaaS, bundle, or marketplace listing
 - using the project in a workflow intended to generate revenue or commercial advantage
 
-Important: availability on GitHub or npm does not grant any commercial right.
+Important: availability on GitHub, npm, or any public source distribution channel does not grant any commercial right.
 
 References:
 

@@ -52,4 +52,8 @@ Describe the preferred fix or hardening step.
 
 Add logs, screenshots, policy fragments, or related file paths if relevant.
 
+## License Check
+
+- [ ] This report does not assume any commercial right beyond the repository's published non-commercial terms
+
 > Do not use this template for active secret leaks, confirmed compromise, or exploit details that should remain private. Use private security reporting instead.

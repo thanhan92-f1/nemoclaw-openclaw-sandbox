@@ -69,3 +69,6 @@ The format is based on `Keep a Changelog` and this repository currently tracks d
 - aligned `LICENSE`, `NOTICE`, `COMMERCIAL-LICENSE.md`, `README.md`, and `web/index.html` around explicit non-commercial usage terms and commercial-rights reservation
 - added early non-commercial license guidance to `CONTRIBUTING.md` and `.github/ISSUE_TEMPLATE/config.yml`
 - added non-commercial compliance prompts to the PR template and public issue templates
+- extended license guidance to `security_report.md` and linked `docs/licensing.md` from the website license section
+- added a deployment-facing non-commercial license notice at the top of `INSTALL.md`
+- harmonized the public commercial-rights warning text across `README.md`, `INSTALL.md`, and `web/index.html`

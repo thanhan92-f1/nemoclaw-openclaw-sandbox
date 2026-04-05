@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NemoClaw OpenClaw Sandbox - Cloud Service or VPS Deployment</title>
   <meta name="description" content="Operational deployment kit for NemoClaw OpenClaw Sandbox on a cloud service or VPS. Includes install automation, reverse proxy setup, service management, security guidance, and day-2 operations documentation.">
-  <link rel="icon" type="image/svg+xml" href="logo-icon.svg">
+  <link rel="icon" type="image/svg+xml" href="./logo-icon.svg">
+  <link rel="shortcut icon" href="./logo-icon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -258,7 +259,7 @@
 
     .code-block {
       margin-top: 24px;
-      padding: 18px;
+      padding: 12px;
       overflow: auto;
     }
 
@@ -374,6 +375,9 @@
       color: var(--brand);
       margin-bottom: 14px;
       font-weight: 700;
+      font-size: 0.85rem;
+      line-height: 1;
+      letter-spacing: 0.02em;
     }
 
     .stats {
@@ -628,22 +632,22 @@
         </div>
         <div class="grid-4">
           <article class="card fade-in">
-            <div class="card-icon">🔒</div>
+            <div class="card-icon" aria-hidden="true">SEC</div>
             <h3>Private Gateway</h3>
             <p>`OpenClaw Gateway` is expected on `127.0.0.1:18789`, with public access handled through `Caddy`.</p>
           </article>
           <article class="card fade-in">
-            <div class="card-icon">🌐</div>
+            <div class="card-icon" aria-hidden="true">NET</div>
             <h3>Minimal Exposure</h3>
             <p>Only ports `80` and `443` should be public. Internal ports remain private to the host.</p>
           </article>
           <article class="card fade-in">
-            <div class="card-icon">🗝️</div>
+            <div class="card-icon" aria-hidden="true">KEY</div>
             <h3>Credential Handling</h3>
             <p>Provider credentials belong on the host via `OpenShell` provider configuration rather than in public-facing configs.</p>
           </article>
           <article class="card fade-in">
-            <div class="card-icon">🛡️</div>
+            <div class="card-icon" aria-hidden="true">OPS</div>
             <h3>Controlled Recovery</h3>
             <p>Rollback, disaster recovery, audit, and decommissioning flows are documented to reduce improvised changes.</p>
           </article>
@@ -848,7 +852,7 @@
             <ul class="footer-list">
               <li><span class="dot"></span><span>Allowed: personal learning, education, research, testing, evaluation, and internal non-commercial use.</span></li>
               <li><span class="dot"></span><span>Attribution: `Nguyen Thanh An by Pho Tue SoftWare Solutions JSC`.</span></li>
-              <li><span class="dot"></span><span>Important: GitHub or npm availability does not grant any commercial right.</span></li>
+              <li><span class="dot"></span><span>Important: availability on GitHub, npm, or any public source distribution channel does not grant any commercial right.</span></li>
             </ul>
           </article>
           <article class="footer-card fade-in">
@@ -865,6 +869,7 @@
               <li><span class="dot"></span><span><a href="https://github.com/thanhan92-f1/nemoclaw-openclaw-sandbox/blob/main/LICENSE" target="_blank" rel="noopener">View License</a></span></li>
               <li><span class="dot"></span><span><a href="https://github.com/thanhan92-f1/nemoclaw-openclaw-sandbox/blob/main/NOTICE" target="_blank" rel="noopener">License Notice</a></span></li>
               <li><span class="dot"></span><span><a href="https://github.com/thanhan92-f1/nemoclaw-openclaw-sandbox/blob/main/COMMERCIAL-LICENSE.md" target="_blank" rel="noopener">Commercial Licensing</a></span></li>
+              <li><span class="dot"></span><span><a href="https://github.com/thanhan92-f1/nemoclaw-openclaw-sandbox/blob/main/docs/licensing.md" target="_blank" rel="noopener">Licensing Guide</a></span></li>
             </ul>
           </article>
         </div>

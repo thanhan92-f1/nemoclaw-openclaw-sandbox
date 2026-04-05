@@ -1,5 +1,19 @@
 # Installation Guide
 
+## License Notice
+
+This repository is available for strictly non-commercial use only.
+
+Before deploying, updating, redistributing, or adapting this project, review:
+
+- `LICENSE`
+- `NOTICE`
+- `COMMERCIAL-LICENSE.md`
+- `docs/licensing.md`
+
+Important: availability on GitHub, npm, or any public source distribution
+channel does not grant any commercial right.
+
 ## Repository Reference
 
 Deployment repository reference:
